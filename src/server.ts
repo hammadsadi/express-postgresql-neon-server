@@ -4,6 +4,7 @@ import config from "./config";
 import { initDb } from "./config/db";
 import logger from "./middlewares/logger";
 import { UserRoutes } from "./modules/user/user.route";
+import { AuthRoutes } from "./modules/auth/auth.route";
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.get("/", logger, (req: Request, res: Response) => {
 
 //  Users Routes
 app.use("/user", UserRoutes);
+app.use("/auth", AuthRoutes);
 
 // Api Not Found
 app.use((req, res) => {
